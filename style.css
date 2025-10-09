@@ -102,4 +102,20 @@ footer {
     margin: 2em 1em;
     padding: 2em;
   }
+  /* ===== Resume PDF Viewer ===== */
+.pdf-container {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 850px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  background-color: #0d0d0d;
+}
+
 }
