@@ -167,7 +167,7 @@ main > img {
 }
 /* Optional: tune homepage content width */
 main { 
-  max-width: 860px;    /* was 800px */
+  max-width: 1000px;    /* was 800px */
   margin: 3em auto;    /* keep centered */
 }
 
