@@ -148,3 +148,26 @@ footer {
 @media (max-width: 480px) {
   .pdf-container iframe { height: 560px; }
 }
+/* Restore non-link heading in header */
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8em;
+  color: var(--text);
+}
+/* Circle-crop only the main content portrait image(s) */
+main > img {
+  display: block;
+  margin: 0 auto 1.5em;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+}
+/* Optional: tune homepage content width */
+main { 
+  max-width: 860px;    /* was 800px */
+  margin: 3em auto;    /* keep centered */
+}
+
