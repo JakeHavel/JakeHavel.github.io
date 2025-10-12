@@ -32,11 +32,12 @@ header {
 }
 
 .brand {
-  color: var(--text);
-  text-decoration: none;
+  color: #f0e6d2;
   font-weight: 700;
   font-size: 1.8em;
+  margin: 0;
 }
+
 
 nav a {
   color: var(--accent);
