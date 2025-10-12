@@ -1,34 +1,45 @@
 /* ===== Global Styles ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
+:root{
+  --bg:#121212;         /* deep black */
+  --panel:#1f1b16;      /* dark brown-black */
+  --text:#f0e6d2;       /* light beige */
+  --accent:#d2b48c;     /* tan/brown */
+  --muted:#8a7f73;
+}
+
+*{ box-sizing:border-box; }
+
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212; /* deep black */
-  color: #f0e6d2;            /* light beige text */
+  background-color: var(--bg);
+  color: var(--text);
   margin: 0;
   padding: 0;
 }
 
 /* ===== Header & Navigation ===== */
 header {
-  background-color: #1f1b16; /* dark brown-black */
-  color: #f0e6d2;
+  background-color: var(--panel);
+  color: var(--text);
   padding: 1.5em 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
-header h1 {
-  margin: 0;
+.brand {
+  color: var(--text);
+  text-decoration: none;
   font-weight: 700;
   font-size: 1.8em;
 }
 
 nav a {
-  color: #d2b48c; /* tan accent */
+  color: var(--accent);
   text-decoration: none;
   margin-left: 20px;
   font-weight: 500;
@@ -36,73 +47,72 @@ nav a {
 }
 
 nav a:hover {
-  color: #f0e6d2;
-  border-bottom: 2px solid #d2b48c;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
 }
 
 /* ===== Main Content ===== */
 main {
   max-width: 800px;
   margin: 3em auto;
-  background: #1f1b16;
+  background: var(--panel);
   padding: 2.5em;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
-img {
-  display: block;
-  margin: 0 auto 1.5em;
-  border-radius: 50%;
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border: 3px solid #d2b48c;
+main.wide {
+  max-width: 1100px;  /* wider just for resume page */
 }
 
 h2 {
-  color: #d2b48c;
-  border-bottom: 1px solid #d2b48c;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
   padding-bottom: 0.3em;
-  margin-top: 1.5em;
+  margin-top: 0.2em;
 }
 
-a {
-  color: #d2b48c;
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.center { text-align:center; }
+.mt { margin-top: 1.5em; }
+
+/* ===== Button ===== */
+.button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--bg);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, background-color 0.2s;
 }
-
-a:hover {
-  text-decoration: underline;
+.button:hover {
+  background-color: var(--text);
+  transform: translateY(-1px);
 }
 
 /* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 1.5em;
-  color: #8a7f73;
+  color: var(--muted);
   font-size: 0.9em;
   background-color: #0d0d0d;
   margin-top: 4em;
 }
 
-/* ===== Responsive Design ===== */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
+/* ===== Resume PDF Viewer ===== */
+.pdf-fullbleed {
+  max-width: 1200px;   /* allow the PDF area to breathe */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
-  nav a {
-    margin: 10px;
-    display: inline-block;
-  }
-
-  main {
-    margin: 2em 1em;
-    padding: 2em;
-  }
-  /* ===== Resume PDF Viewer ===== */
 .pdf-container {
   margin-top: 2em;
   display: flex;
@@ -111,20 +121,29 @@ footer {
 }
 
 .pdf-container iframe {
-  width: 90vw;          /* use 90% of the viewport width */
-  max-width: 900px;     /* cap it for large screens */
-  height: 1100px;       /* taller for better readability */
+  width: 100%;          /* fill the wider container */
+  height: 1200px;       /* tall enough to read on desktop */
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
   background-color: #0d0d0d;
 }
-@media (max-width: 768px) {
-  .pdf-container iframe {
-    width: 95vw;
-    height: 700px;
-  }
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1100px) {
+  .pdf-container iframe { height: 1000px; }
 }
 
+@media (max-width: 900px) {
+  main { margin: 2.5em 1em; padding: 2em; }
+}
 
+@media (max-width: 768px) {
+  header { flex-direction: column; text-align: center; }
+  nav a { margin: 10px; display: inline-block; }
+  .pdf-container iframe { height: 720px; }
+}
+
+@media (max-width: 480px) {
+  .pdf-container iframe { height: 560px; }
 }

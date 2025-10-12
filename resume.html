@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Résumé | Jake Havel</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Jake Havel</h1>
+    <!-- Makes your name clickable back to Home -->
+    <a href="index.html" class="brand">Jake Havel</a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="resume.html">Résumé</a>
+      <a href="resume.html" aria-current="page">Résumé</a>
       <a href="contact.html">Contact Me</a>
     </nav>
   </header>
 
-  <main>
+  <!-- Wider layout only on this page -->
+  <main class="wide">
     <h2>Résumé</h2>
     <p>Below is my current résumé. You can scroll through it or open it in a new tab to view or download.</p>
 
-    <div class="pdf-container">
-      <iframe src="CV2.pdf"></iframe>
-    </div>
+    <section class="pdf-fullbleed">
+      <div class="pdf-container">
+        <!-- Ensure the filename & case match exactly in your repo -->
+        <iframe src="CV2.pdf" title="Résumé PDF preview"></iframe>
+      </div>
+    </section>
 
-    <p style="text-align: center; margin-top: 1.5em;">
-      <a href="CV2.pdf" target="_blank" class="button">Open Full Résumé (PDF)</a>
+    <p class="center mt">
+      <a href="CV2.pdf" target="_blank" rel="noopener" class="button">Open Full Résumé (PDF)</a>
     </p>
   </main>
 
